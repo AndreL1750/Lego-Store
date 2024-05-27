@@ -1,0 +1,34 @@
+.Navbar {
+  display: grid;
+  grid-template-columns: 6vw 30vw;
+  font-size: 1.6rem;
+  background-color: #f9f9f9;
+  max-width: 100vw;
+  padding: 10px;
+  border-bottom: 1px solid #333;
+}
+.Navbar .first-btn-out {
+  min-width: 40vw;
+}
+.Navbar .first-btn-out button {
+  font-size: 2rem;
+  text-transform: uppercase;
+  font-weight: bold;
+  margin-right: 5vw;
+  margin-top: 1vh;
+  background-color: transparent;
+  border: none;
+}
+.Navbar .first-btn ul button {
+  font-size: 1.6rem;
+}
+.Navbar .first-btn ul button:hover {
+  text-decoration: underline;
+}
+.Navbar button:hover {
+  cursor: pointer;
+  opacity: 0.5;
+}
+.Navbar img {
+  max-width: 5vw;
+}
