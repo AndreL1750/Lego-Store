@@ -5,7 +5,7 @@ export default function Navbar() {
     
     const [display, setDisplay] = useState(false);
 
-    console.log(display)
+    console.log("nav " + display)
 
     function handleDisplay() {
         if(!display) {

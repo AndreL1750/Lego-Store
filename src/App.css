@@ -18,6 +18,7 @@
   margin-top: 1vh;
   background-color: transparent;
   border: none;
+  transition: 1s;
 }
 .Navbar .first-btn ul button {
   font-size: 1.6rem;
@@ -31,4 +32,54 @@
 }
 .Navbar img {
   max-width: 5vw;
+}
+
+/* Homepage */
+.Home {
+  background-color: #f1f1f1;
+  padding: 1vw;
+}
+.Home .filter-btn {
+  position: relative;
+  transition: 1s;
+}
+.Home .filter-btn .filter-div {
+  position: absolute;
+  top: -8px;
+  right: 0;
+  transition: 1s;
+}
+.Home .category-filter {
+  display: grid;
+  grid-template-columns: 100% 1fr;
+  font-size: 1.4rem;
+  transition: 1s;
+}
+.Home .category-filter .checkbox-div {
+  background-color: #a287af;
+  box-shadow: -2px 2px 3px #000;
+  margin-top: 10px;
+  padding: 10px;
+  border-radius: 5px;
+}
+.Home .checkbox-div .check-div-div {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  grid-gap: 1px;
+}
+.Home .filter-div {
+  display: inline;
+  font-size: 1.4rem;
+}
+.Home .filter-div .filter {
+  margin-top: 10px;
+  border: 1px solid #000;
+  border-radius: 5px;
+}
+.Home .content {
+  display: grid;
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid #9c9c9c;
 }
