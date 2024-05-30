@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Cards from "./Cards";
 
 export default function Home() {
 
@@ -6,7 +7,7 @@ export default function Home() {
     
     const [displayFilter, setDisplayFilter] = useState(false);
 
-    console.log("nav " + displayFilter)
+    console.log("filter " + displayFilter)
 
     function handleDisplayFilter() {
         if(!displayFilter) {
@@ -26,8 +27,8 @@ export default function Home() {
                         <h2>Theme:</h2>
                         <div className="check-div-div">
                             {
-                                labelFilters.map(labelFilter => (
-                                    <div>
+                                labelFilters.map((labelFilter, index) => (
+                                    <div key={index}>
                                         <label>
                                             <input type="checkbox" />
                                             {labelFilter}
@@ -59,8 +60,8 @@ export default function Home() {
             </div>
             <div className="content">
                 CONTENT
+                <Cards />
             </div>
-
         </main>
     );
 }
