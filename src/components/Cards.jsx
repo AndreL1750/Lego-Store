@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 export default function Cards() {
     
-    let [prodMax, setProdMax] = useState(35);
+    let [prodMax] = useState(12);
 
     const [products, setProducts] = useState([]);
     
@@ -30,9 +30,7 @@ export default function Cards() {
                     ))
                 }
             </div>
-            <div className="more-btn-div">
-                <button type="button" onClick={() => setProdMax(prodMax + 35)}>more</button>
-            </div>
+            
             
         </div>
     );

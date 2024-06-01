@@ -1,19 +1,9 @@
-import { useEffect, useState } from "react";
+import Cards from "./Cards";
 
 export default function Product() {
 
-    const [products, setProducts] = useState([]);
+    //const labelFilters = ["Architecture", "City", "Marvel", "Angry Birds™", "DUPLO®", "Creator Expert", "Disney™"];
     
-    useEffect(() => {
-             
-        fetch('/legosetshmm.json')
-        .then(response => response.json())
-        .then(product => setProducts(product)); 
-        
-    }, []);
-    
-    console.log(products);
-
     return (
         <main className="Product">
             <div className="filtering">
@@ -282,17 +272,7 @@ export default function Product() {
                     </div>
                 </div>
                 <div className="content">
-                    <div className="product-list">
-                        {
-                            products.slice(13, 17).map((product, index) => (
-                                <div className="product" key={index}>
-                                    <img src="/images/lego-logo.svg" alt="" />
-                                    <h3>{product.set_name}</h3>
-                                    <div>{product.list_price + "$"} {product.star_rating}</div>
-                                </div>
-                            ))
-                        }
-                    </div>
+                    <Cards />
                 </div>
             </section>
             <div className="next-prev-page">
