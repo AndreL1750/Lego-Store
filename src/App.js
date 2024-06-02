@@ -5,6 +5,7 @@ import Header from './components/Header';
 import Cart from './components/Cart';
 import Profile from './components/Profile';
 import Product from './components/Product';
+import Footer from './components/Footer';
 
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
           <Route path="/page2" element={<Profile />} />
           <Route path="/product" element={<Product />} />
         </Routes>
+        <Footer />
       </div>
     </BrowserRouter>
   );

@@ -2,7 +2,7 @@
   display: grid;
   grid-template-columns: 6vw 30vw;
   font-size: 1.6rem;
-  background-color: #f9f9f9;
+  background-color: #ffd502;
   max-width: 100vw;
   padding: 10px;
   border-bottom: 1px solid #333;
@@ -43,44 +43,101 @@
 
 
 /* Content */
+.Home {
+  max-width: 50vw;
+  margin: 0 auto;
+}
 .Product {
   max-width: 50vw;
   margin: 0 auto;
 }
-.Product .filtering {
+.filtering {
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.Product .filter-temp {
+.filter-temp {
   display: inline;
   border: 1px solid #ccc;
   margin-right: 10px;
 }
-.Product section {
+section {
   display: flex;
   flex-wrap: nowrap;
   justify-content: center;
 }
-.Product .product-list {
+.product-list {
   display: grid;
   grid-template-columns: 10vw 10vw 10vw;
 }
-.Product .product-list .product {
+.product-list .product {
   border: 1px solid #cbcbcb;
 }
-.Product .next-prev-page {
+.next-prev-page {
   padding: 20px;
   text-align: center;
 }
-.Product .next-prev-page a {
+.next-prev-page a {
   vertical-align: middle;
   padding: 15px;
 
 }
-.Product .next-prev-page img {
+.next-prev-page img {
   max-width: 10px;
 }
-.Product .next-prev-page .chevron img {
+.next-prev-page .chevron img {
   transform: rotate(180deg);
+}
+
+/* Footer */
+.Footer {
+  max-width: 100vw;
+  background-color: #201d48;
+  padding: 40px;
+  color: #fff;
+}
+.Footer .ul-h3 {
+  margin-top: 10px;
+  margin-bottom: 40px;
+  font-size: 1.6rem;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+.Footer .footer-wrapper {
+  display: grid;
+  grid-template-columns: auto auto auto auto auto;
+  grid-gap: 5vw;
+  justify-content: center;
+}
+.Footer .location-btn {
+  display: flex;
+  align-items: center;
+  background-color: #18152d;
+  border: none;
+  color: #fff;
+  font-size: 1.3rem;
+  padding: 7px 1vw;
+  margin-top: 15px;
+  margin-bottom: 20px;
+}
+.Footer .location-btn svg {
+  max-width: 15px;
+  margin-right: 10px;
+}
+.Footer ul {
+  max-width: 70vw;
+}
+.Footer ul li {
+  margin-bottom: 20px;
+}
+.Footer ul li a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 1.5rem;
+}
+.Footer ul li a:hover {
+  text-decoration: underline;
+}
+.Footer img {
+  max-width: 5vw;
 }
