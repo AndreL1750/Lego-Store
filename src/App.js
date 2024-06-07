@@ -3,10 +3,8 @@ import './App.css';
 import Home from './components/Home';
 import Header from './components/Header';
 import Cart from './components/Cart';
-import Profile from './components/Profile';
-import Product from './components/Product';
 import Footer from './components/Footer';
-
+import Architecture from './components/Architecture';
 
 function App() {
   
@@ -17,8 +15,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/cart" element={<Cart />} />
-          <Route path="/page2" element={<Profile />} />
-          <Route path="/product" element={<Product />} />
+          <Route path="/products/:page" element={<Architecture />} />
         </Routes>
         <Footer />
       </div>

@@ -1,37 +1,87 @@
 .Navbar {
-  display: grid;
-  grid-template-columns: 6vw 30vw;
-  font-size: 1.6rem;
-  background-color: #ffd502;
-  max-width: 100vw;
   padding: 10px;
-  border-bottom: 1px solid #333;
+  background-color: #ffd502;
+  border-bottom: 1px solid #c9c9c9;
 }
-.Navbar .first-btn-out {
-  min-width: 40vw;
+.Navbar .menu-wrapper {
+  display: grid;
+  grid-template-columns: 55px 1fr;
+  align-items: center;
+  max-width: 60vw;
+  margin: 0 auto;
 }
-.Navbar .first-btn-out button {
-  font-size: 2rem;
+.Navbar .menu-wrapper .menu-btn {
+  font-size: 1.6rem;
   text-transform: uppercase;
   font-weight: bold;
-  margin-right: 5vw;
-  margin-top: 1vh;
   background-color: transparent;
   border: none;
-  transition: 1s;
+  z-index: 3;
+  position: sticky;
+  margin-left: 40px;
 }
-.Navbar .first-btn ul button {
-  font-size: 1.6rem;
+.Navbar .menu-wrapper .menu-list {
+  position: absolute;
+  z-index: 3;
+  margin-top: 50px;
+  font-size: 1.5rem;
+  margin-left: 40px;
 }
-.Navbar .first-btn ul button:hover {
-  text-decoration: underline;
+.Navbar .menu-wrapper .menu-list li, .Navbar .menu-wrapper .menu-list li button  {
+  min-width: 220px;
+  font-size: 1.5rem;
+  margin-top: 10px;
+}
+.Navbar .menu-wrapper .menu-list li button {
+  display: flex;
+  justify-content: space-between;
+  min-width: 100%;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  color: #000;
+}
+.Navbar .menu-wrapper .menu-list img {
+  max-width: 10px;
+  vertical-align: middle;
+}
+.Navbar .menu-wrapper .menu-list-links {
+  max-width: 200px;
+}
+.Navbar .menu-wrapper .menu-list-links li a {
+  text-decoration: none;
+  color: #000;
+}
+.Navbar .menu-wrapper .menu-list-links li a:hover {
+  border-bottom: 1px solid #000;
+}
+.Navbar .menu-content {
+  background-color: #fff;
+  width: 900px;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 2;
+  position: fixed;
+}
+.Navbar .menu-content-dark {
+  position: fixed;
+  min-width: 100%;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  background-color: #000;
+  opacity: 0.5;
+  z-index: 1;
 }
 .Navbar button:hover {
   cursor: pointer;
   opacity: 0.5;
 }
 .Navbar img {
-  max-width: 5vw;
+  position: sticky;
+  z-index: 5;
+  max-width: 55px;
 }
 
 /* Homepage */
@@ -52,14 +102,39 @@
   margin: 0 auto;
 }
 .filtering {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  max-width: 50vw;
+  margin: 10px auto;
 }
-.filter-temp {
-  display: inline;
-  border: 1px solid #ccc;
-  margin-right: 10px;
+.filter-wrapper {
+  margin-right: 40px;
+}
+.filter-wrapper > div {
+  border-top: 1px solid #e0e0e0;
+}
+.filter-wrapper button {
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: baseline;
+  min-width: 100%;
+  background-color: transparent;
+  border: none;
+  font-size: 1.5rem;  
+  font-weight: bold;
+  cursor: pointer;
+  color: #2c2c2c;
+  padding: 15px 0 15px 0;
+}
+.filter-wrapper .available-only {
+  padding: 15px 0 15px 0;
+}
+.filter-wrapper button svg {
+  max-width: 10px;
+  vertical-align: middle;
+  margin-right: 3px;
+  transition: all 0.1s linear;
+}
+.filter-wrapper div ul {
+  padding-bottom: 10px;
 }
 section {
   display: flex;
