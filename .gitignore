@@ -1,9 +1,11 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # resources
+/public/*.mp4
 /public/*.png
 /public/*.ico
 /public/images
+/public/videos
 
 # dependencies
 /node_modules
