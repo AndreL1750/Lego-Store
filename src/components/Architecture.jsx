@@ -1,5 +1,5 @@
 import Filters from "./Filters";
-import { Link, NavLink, useParams } from "react-router-dom";
+import { NavLink, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 
@@ -19,11 +19,17 @@ export default function Architecture() {
     }, []);
     
     useEffect(() => {
-        setProdFilter(products.slice(12, 24));
-    }, [params.page]);
+        if(params.page === "1") {
+            setProdFilter(products.slice(0, 12));
+        }
+        else {
+            setProdFilter(products.slice(12, 16));
+        }
+    }, [params, products]);
 
     console.log(params.page);
     console.log(prodfilter);
+    console.log(products);
 
     return (
         <main className="Product">
@@ -56,10 +62,10 @@ export default function Architecture() {
                 </div>
             </section>
             <div className="next-prev-page">
-                <NavLink to="/products/1" className="chevron"><img src="/images/chevron.svg" alt="" /></NavLink>
-                <NavLink to="/products/1">1</NavLink>
-                <NavLink to="/products/2">2</NavLink>
-                <NavLink to="/products/2"><img src="/images/chevron.svg" alt="" /></NavLink>
+                <NavLink to={"/products/architecture/1"} className="chevron"><img src="/images/chevron.svg" alt="" /></NavLink>
+                <NavLink to={"/products/architecture/1"}>1</NavLink>
+                <NavLink to={"/products/architecture/2"}>2</NavLink>
+                <NavLink to={"/products/architecture/2"} ><img src="/images/chevron.svg" alt="" /></NavLink>
             </div>
         </main>
     );

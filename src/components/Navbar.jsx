@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { NavLink } from "react-router-dom";
 
 export default function Navbar() {
     
@@ -91,12 +90,12 @@ export default function Navbar() {
         <nav className="Navbar">
             <div className="menu-wrapper">
                 <div>
-                    <NavLink to="/"><img src="images/lego-logo.svg" alt="" /></NavLink>
-                </div>
-                <div>
-                    <button style={{borderBottom: borderDisplay1}} className="menu-btn" type="button" onClick={handleDisplayContent1}>Comprar</button>       
-                    <button style={{borderBottom: borderDisplay2}} className="menu-btn" type="button" onClick={handleDisplayContent2}>Descobrir</button>       
-                    <button style={{borderBottom: borderDisplay3}} className="menu-btn" type="button" onClick={handleDisplayContent3}>Ajuda</button>       
+                    <div className="Nav-Btn">
+                        <img src="/images/lego-logo.svg" alt="" />
+                        <button style={{borderBottom: borderDisplay1}} className="menu-btn" type="button" onClick={handleDisplayContent1}>Comprar</button>       
+                        <button style={{borderBottom: borderDisplay2}} className="menu-btn" type="button" onClick={handleDisplayContent2}>Descobrir</button>       
+                        <button style={{borderBottom: borderDisplay3}} className="menu-btn" type="button" onClick={handleDisplayContent3}>Ajuda</button>       
+                    </div>
                     <div style={{display: content1}} className="menu-list">
                         <ul>
                             <li><button type="button"onClick={handleThemeBtn}>Conjuntos por tema<img src="/images/chevron.svg" alt="" /></button></li>

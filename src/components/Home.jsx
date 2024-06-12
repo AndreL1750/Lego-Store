@@ -63,13 +63,36 @@ export default function Home() {
                             <svg width="18" height="28" viewBox="0 0 18 28" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><path d="M1.825 28L18 14 1.825 0 0 1.715 14.196 14 0 26.285z" fill="currentColor"/></svg>
                         </a>
                     </div>
-                    <div>
+                    <div className="Planets-Videos">
                         <a href="/">
-                            <video loop autoPlay muted>
+                            <video className="Planets-Display" loop autoPlay muted>
                                 <source src="/videos/Lego-Planets.mp4" type="video/mp4" />
+                            </video>
+                            <video className="Mobile-Planets-Display" loop autoPlay muted>
+                                <source src="/videos/Lego-Planets-Mobile.mp4" type="video/mp4" />
                             </video>
                         </a>
                     </div>
+                </div>
+                <div className="video-banner-b">
+                    <h3>Descobre as inúmeras formas de explorar o espaço</h3>
+                    <div className="v-banner-b-a">
+                        <a href="/">Explorar
+                            <svg width="18" height="28" viewBox="0 0 18 28" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><path d="M1.825 28L18 14 1.825 0 0 1.715 14.196 14 0 26.285z" fill="currentColor"/></svg>
+                        </a>
+                        <a href="/">Comprar agora
+                            <svg width="18" height="28" viewBox="0 0 18 28" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><path d="M1.825 28L18 14 1.825 0 0 1.715 14.196 14 0 26.285z" fill="currentColor"/></svg>
+                        </a>
+                    </div>
+                </div>
+                <div className="space-prod-show">
+                    <div className="space-prod-wrapper">
+                        <h3>Explora mais conjuntos espaciais</h3>
+                    </div>
+                </div>
+                <div className="space-banner">
+                    <img className="large" src="/images/Space-Banner.jpg" alt="" />
+                    <img className="small" src="/images/Space-Banner-Small.jpg" alt="" />
                 </div>
             </div>
         </main>
