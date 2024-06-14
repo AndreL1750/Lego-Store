@@ -27,10 +27,14 @@ export default function Architecture() {
         }
     }, [params, products]);
 
+    const [text, setText] = useState("");
+
+    
+
     return (
         <main className="Architecture">
             <div className="filtering">
-                <div>A mostrar X produto(s)</div>
+                <div>A mostrar {prodfilter.length} produto(s)</div>
                 <div className="filter-div">
                     Filter:
                     <select className="filter">
@@ -41,12 +45,14 @@ export default function Architecture() {
                     </select>
                 </div>
             </div>
+            <input type="text" onChange={(e) => {setText(e.target.value);}}  />
+
             <section>
                 <Filters />
                 <div className="content">
                     <div className="product-list">
                         {
-                            prodfilter.map((prodfilter, set_id) => (
+                            prodfilter.filter((texted) => (text.toLocaleLowerCase() === "" ? texted : texted.set_name.toLocaleLowerCase().includes(text))).map((prodfilter, set_id) => (
                                 <div className="product" key={set_id}>
                                     <div className="images">
                                         <div className="img-btns-wrapper">

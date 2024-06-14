@@ -6,6 +6,7 @@ import Cart from './components/Cart';
 import Footer from './components/Footer';
 import Architecture from './components/Architecture';
 import { Product } from './components/Product';
+import Search from './components/Search';
 
 function App() {
   
@@ -16,6 +17,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/cart" element={<Cart />} />
+          <Route path="/search/:page" element={<Search />} />
           <Route path="/products/architecture/:page" element={<Architecture />} />
           <Route path="/product/:id" element={<Product />} />
         </Routes>
