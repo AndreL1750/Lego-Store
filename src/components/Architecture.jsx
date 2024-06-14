@@ -27,12 +27,9 @@ export default function Architecture() {
         }
     }, [params, products]);
 
-    console.log(params.page);
-    console.log(prodfilter);
-    console.log(products);
 
     return (
-        <main className="Product">
+        <main className="Architecture">
             <div className="filtering">
                 <div>A mostrar X produto(s)</div>
                 <div className="filter-div">
@@ -52,9 +49,23 @@ export default function Architecture() {
                         {
                             prodfilter.map((prodfilter, index) => (
                                 <div className="product" key={index}>
-                                    <img src="/images/lego-logo.svg" alt="" />
-                                    <h3>{prodfilter.set_name}</h3>
-                                    <div>{prodfilter.list_price + "$"} {prodfilter.star_rating}</div>
+                                    <div className="images">
+                                        <div className="img-btns-wrapper">
+                                            <div className="img-btns">
+                                                <button className="img-change" type="button"></button>
+                                                <button className="img-change" type="button"></button>
+                                            </div>
+                                        </div>
+                                        <img className="img1" src={"/images/lego-logo.svg"} alt="" />
+                                    </div>
+                                    <div className="age-piece-rating">
+                                        <div><img src="/images/age-o.svg" alt="" /> {prodfilter.ages}</div>
+                                        <div><img src="/images/brick-o.svg" alt="" /> {prodfilter.piece_count}</div>
+                                        <div><img src="/images/star-f.svg" alt="" /> {prodfilter.star_rating}</div>
+                                    </div>
+                                    <h3 className="name">{prodfilter.set_name}</h3>
+                                    <div className="price">{prodfilter.list_price + "$"}</div>
+                                    <button className="addCart" type="button"><img src="/images/bag.svg" alt="" />Adicionar ao Cesto</button>
                                 </div>
                             ))
                         }

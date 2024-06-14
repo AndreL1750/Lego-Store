@@ -102,7 +102,7 @@ export default function Navbar() {
                             <li style={{display: themeDisplay}}><div className="grid-list styleAnch">
                                     <div className="grid-list-top-text"><a href="/">Ver todos os temas</a></div>
                                     <ul>
-                                        <li><a href="/">Architecture</a></li>
+                                        <li><a href="/products/architecture/1">Architecture</a></li>
                                         <li><a href="/">Ideas</a></li>
                                         <li><a href="/">Marvel</a></li>
                                         <li><a href="/">Batman™</a></li>

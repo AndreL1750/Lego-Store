@@ -15,7 +15,7 @@ export default function Filters() {
             <div className="available-only">
                 <label>
                     <input type="checkbox" />
-                    Mostrar apenas disponível em stock
+                    <span>Mostrar apenas disponível em stock</span>
                 </label>
             </div>
             <div>
@@ -32,13 +32,13 @@ export default function Filters() {
                         <li>
                             <label>
                                 <input type="checkbox" />
-                                Conjuntos
+                                <span>Conjuntos</span>
                             </label>
                         </li>
                         <li>
                             <label>
                                 <input type="checkbox" />
-                                Para adultos
+                                <span>Para adultos</span>
                             </label>
                         </li>
                     </ul>
@@ -58,25 +58,25 @@ export default function Filters() {
                         <li>
                             <label>
                                 <input type="checkbox" />
-                                20 € - 50 €
+                                <span>20 € - 50 €</span>
                             </label>
                         </li>
                         <li>
                             <label>
                                 <input type="checkbox" />
-                                50 € - 100 €
+                                <span>50 € - 100 €</span>
                             </label>
                         </li>
                         <li>
                             <label>
                                 <input type="checkbox" />
-                                100 € - 200 €
+                                <span>100 € - 200 €</span>
                             </label>
                         </li>
                         <li>
                             <label>
                                 <input type="checkbox" />
-                                200 €+ 
+                                <span>200 €+</span>
                             </label>
                         </li>
                     </ul>
@@ -96,7 +96,7 @@ export default function Filters() {
                         <li>
                             <label>
                                 <input type="checkbox" />
-                                Architecture
+                                <span>Architecture</span>
                             </label>
                         </li>
                     </ul>
@@ -116,19 +116,19 @@ export default function Filters() {
                         <li>
                             <label>
                                 <input type="checkbox" />
-                                Arte, design e música
+                                <span>Arte, design e música</span>
                             </label>
                         </li>
                         <li>
                             <label>
                                 <input type="checkbox" />
-                                Edifícios
+                                <span>Edifícios</span>
                             </label>
                         </li>
                         <li>
                             <label>
                                 <input type="checkbox" />
-                                História e viagens
+                                <span>História e viagens</span>
                             </label>
                         </li>
                     </ul>
@@ -148,13 +148,13 @@ export default function Filters() {
                         <li>
                             <label>
                                 <input type="checkbox" />
-                                13+
+                                <span>13+</span>
                             </label>
                         </li>
                         <li>
                             <label>
                                 <input type="checkbox" />
-                                18+
+                                <span>18+</span>
                             </label>
                         </li>
                     </ul>
@@ -174,19 +174,19 @@ export default function Filters() {
                         <li>
                             <label>
                                 <input type="checkbox" />
-                                Disponível agora
+                                <span>Disponível agora</span>
                             </label>
                         </li>
                         <li>
                             <label>
                                 <input type="checkbox" />
-                                Para reserva
+                                <span>Para reserva</span>
                             </label>
                         </li>
                         <li>
                             <label>
                                 <input type="checkbox" />
-                                Indisponível
+                                <span>Indisponível</span>
                             </label>
                         </li>
                     </ul>
@@ -206,25 +206,25 @@ export default function Filters() {
                         <li>
                             <label>
                                 <input type="checkbox" />
-                                250 - 499
+                                <span>250 - 499</span>
                             </label>
                         </li>
                         <li>
                             <label>
                                 <input type="checkbox" />
-                                500 - 999
+                                <span>500 - 999</span>
                             </label>
                         </li>
                         <li>
                             <label>
                                 <input type="checkbox" />
-                                1000 - 1999
+                                <span>1000 - 1999</span>
                             </label>
                         </li>
                         <li>
                             <label>
                                 <input type="checkbox" />
-                                2000+
+                                <span>2000+</span>
                             </label>
                         </li>
                     </ul>
@@ -244,19 +244,19 @@ export default function Filters() {
                         <li>
                             <label>
                                 <input type="checkbox" />
-                                Difíceis de encontrar
+                                <span>Difíceis de encontrar</span>
                             </label>
                         </li>
                         <li>
                             <label>
                                 <input type="checkbox" />
-                                Exclusivos
+                                <span>Exclusivos</span>
                             </label>
                         </li>
                         <li>
                             <label>
                                 <input type="checkbox" />
-                                Novidades
+                                <span>Novidades</span>
                             </label>
                         </li>
                     </ul>

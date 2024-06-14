@@ -25,6 +25,7 @@
   max-width: 55px;
   color: #fff;
   margin-right: 13px;
+  margin-left: 20px;
 }
 .Navbar .menu-wrapper .menu-btn {
   font-size: 1.6rem;
@@ -481,6 +482,9 @@
 .filter-wrapper .available-only {
   padding: 15px 0 15px 0;
 }
+.filter-wrapper .available-only label input, .filter-wrapper .available-only label span {
+  vertical-align: middle;
+}
 .filter-wrapper button svg {
   max-width: 10px;
   vertical-align: middle;
@@ -490,18 +494,113 @@
 .filter-wrapper div ul {
   padding-bottom: 10px;
 }
+.filter-wrapper div ul li label span, .filter-wrapper div ul li label input {
+ vertical-align: middle;
+}
 section {
   display: flex;
   flex-wrap: nowrap;
   justify-content: center;
 }
+
 .product-list {
   display: grid;
-  grid-template-columns: 10vw 10vw 10vw;
+  grid-template-columns: 416px 416px 416px;
+  font-size: 1.6rem;
 }
 .product-list .product {
   border: 1px solid #cbcbcb;
+  padding: 40px 8px 16px 8px;
 }
+.product-list .product .images {
+  position: relative;
+  max-width: 400px;
+  margin-bottom: 10px;
+}
+.product-list .product .images .img-btns-wrapper {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+.product-list .product .images .img-btns {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+.img-change {
+  width: 50px;
+  height: 50px;
+  margin: 20px;
+  border: 1px solid #000;
+  cursor: pointer;
+  color: #fff;
+  border: none;
+  border-radius: 25px;
+  background-color: rgba(230, 230, 230, 0.9);
+  background-image: url("/public/images/chevron.svg");
+  background-position: 20px;
+  background-repeat: no-repeat;
+  background-size: 10px;
+  transition: all 0.2s linear;
+  opacity: 0;
+}
+.product-list .product .images:hover .img-change {
+  opacity: 1;
+}
+.product-list .product .img-btns button:first-child {
+  transform: rotate(180deg);
+}
+.product-list .product .images .img1 {
+  max-width: 100%;
+  height: 398px;
+}
+.product-list .product .images .img2 {
+  max-width: 100%;
+}
+.product-list .product .name-rating {
+  display: inline-flex;
+  margin-bottom: 10px;
+}
+.product-list .product .name-rating div {
+  margin-left: 10px;
+}
+.product-list .product .price {
+  font-weight: bold;
+  color: #2c2c2c;
+}
+.product-list .product .addCart {
+  display: inline-flex;
+  align-items: center;
+  background-color: #f47d20;
+  margin-top: 10px;
+  padding: 10px 15px;
+  border-radius: 20px;
+  border: none;
+  font-size: 1.6rem;
+}
+.product-list .product .age-piece-rating div {
+  display: inline-flex;
+  align-items: center;
+  margin-bottom: 10px;
+  margin-right: 10px;
+}
+.product-list .product .age-piece-rating div img {
+  width: 20px;
+  color: #ff0;
+  margin-right: 5px;
+}
+.product-list .product .name {
+  margin-bottom: 10px;
+}
+.product-list .product .addCart img {
+  margin-right: 10px;
+}
+.product-list .product .addCart:hover {
+  background-color: #f46d20;
+}
+
 .next-prev-page {
   padding: 20px;
   text-align: center;
