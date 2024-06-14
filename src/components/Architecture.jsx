@@ -12,7 +12,7 @@ export default function Architecture() {
     
     useEffect(() => {
              
-        fetch('/legosetshmm.json')
+        fetch('/architecture.json')
         .then(response => response.json())
         .then(product => {setProducts(product); setProdFilter(product.slice(0, 12))}); 
         
@@ -26,7 +26,6 @@ export default function Architecture() {
             setProdFilter(products.slice(12, 16));
         }
     }, [params, products]);
-
 
     return (
         <main className="Architecture">
@@ -47,16 +46,18 @@ export default function Architecture() {
                 <div className="content">
                     <div className="product-list">
                         {
-                            prodfilter.map((prodfilter, index) => (
-                                <div className="product" key={index}>
+                            prodfilter.map((prodfilter, set_id) => (
+                                <div className="product" key={set_id}>
                                     <div className="images">
                                         <div className="img-btns-wrapper">
                                             <div className="img-btns">
                                                 <button className="img-change" type="button"></button>
-                                                <button className="img-change" type="button"></button>
+                                                <button className="img-change" type="button" onClick={() => console.log(prodfilter.set_id)}></button>
                                             </div>
                                         </div>
-                                        <img className="img1" src={"/images/lego-logo.svg"} alt="" />
+                                        <div className="img1-wrapper">
+                                            <img className="img1" src={prodfilter.images[0]} alt="" />
+                                        </div>
                                     </div>
                                     <div className="age-piece-rating">
                                         <div><img src="/images/age-o.svg" alt="" /> {prodfilter.ages}</div>
@@ -64,7 +65,7 @@ export default function Architecture() {
                                         <div><img src="/images/star-f.svg" alt="" /> {prodfilter.star_rating}</div>
                                     </div>
                                     <h3 className="name">{prodfilter.set_name}</h3>
-                                    <div className="price">{prodfilter.list_price + "$"}</div>
+                                    <div className="price">{prodfilter.set_price + "$"}</div>
                                     <button className="addCart" type="button"><img src="/images/bag.svg" alt="" />Adicionar ao Cesto</button>
                                 </div>
                             ))
