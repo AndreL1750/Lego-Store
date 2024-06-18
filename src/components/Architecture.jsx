@@ -2,7 +2,6 @@ import Filters from "./Filters";
 import { NavLink, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 
-
 export default function Architecture() {
     const params = useParams();
 
@@ -29,8 +28,6 @@ export default function Architecture() {
 
     const [text, setText] = useState("");
 
-    
-
     return (
         <main className="Architecture">
             <div className="filtering">
@@ -45,9 +42,8 @@ export default function Architecture() {
                     </select>
                 </div>
             </div>
-            <input type="text" onChange={(e) => {setText(e.target.value);}}  />
-
-            <section>
+            <input type="text" value={text} placeholder="Procurar..." onChange={(e) => setText(e.target.value)}  />
+            <section className="prod-section">
                 <Filters />
                 <div className="content">
                     <div className="product-list">

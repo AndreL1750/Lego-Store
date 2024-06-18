@@ -1,6 +1,6 @@
 
-export default function Search() {
-    
+export default function Search(props) {
+
     return (
         <main className="Search">
 
