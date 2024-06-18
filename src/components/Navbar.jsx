@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import Cart from "./Cart";
 
 export default function Navbar() {
     
@@ -88,6 +89,7 @@ export default function Navbar() {
 
     return (
         <nav className="Navbar">
+            <Cart />
             <div className="menu-wrapper">
                 <div>
                     <div className="Nav-Btn">

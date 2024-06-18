@@ -796,6 +796,50 @@
   transform: rotate(180deg);
 }
 
+/* Cart */
+.Cart {
+  padding: 5px;
+  position: absolute;
+}
+.Cart h2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 5px;
+  cursor: pointer;
+  width: 20px;
+  height: 25px;
+  background-image: url("/public/images/bag.svg");
+  background-repeat: no-repeat;
+  background-size: 20px;
+}
+.Cart h2 img {
+  width: 20px;
+  margin-right: 5px;
+}
+.Cart h2 span {
+  display: flex;
+  font-weight: bold;
+}
+.Cart ul {
+}
+.Cart ul li {
+  display: grid;
+  grid-template-columns: 120px 120px;
+  padding: 5px;
+}
+.Cart ul li button img {
+  max-width: 10px;
+}
+.Cart ul li > div {
+  padding: 2px;
+}
+
+.Cart .cart-img {
+  max-width: 120px;
+}
+
+
 /* Footer */
 .Footer {
   max-width: 100vw;
