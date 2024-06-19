@@ -1,28 +1,41 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import { useCart } from './CartContext';
 
 export function Product() {
 
-    //const labelFilters = ["Architecture", "City", "Marvel", "Angry Birds™", "DUPLO®", "Creator Expert", "Disney™"];
-    
-    const [x, setX] = useState(1);
+    const { id } = useParams();
+    const [product, setProduct] = useState(null);
+    const { addItemToCart } = useCart();
+    const [quantity, setQuantity] = useState(1);
+    const [mainImage, setMainImage] = useState("");
+    const sideImagesCount = 6;
 
-    const [prodQuantity] = useState({
-        quantity: 1
-    });
+    useEffect(() => {
+        fetch('/architecture.json')
+            .then(response => response.json())
+            .then(products => {
+                const foundProduct = products.find(product => product.set_id === parseInt(id, 10));
+                setProduct(foundProduct);
+            });
+    }, [id]);
 
-    if(x > 3) {
-        setX(3);
+    function handleDecrease() {
+        setQuantity(prevQuantity => Math.max(1, prevQuantity - 1));
     }
-    if(x < 1) {
-        setX(1);
+
+    function handleIncrease() {
+        setQuantity(prevQuantity => Math.min(3, prevQuantity + 1));
     }
 
     function handleSubmit(e) {
         e.preventDefault();
+        addItemToCart(product, quantity);
+        console.log(product, quantity);
+      }
 
-        prodQuantity.quantity = x;
-        
-        console.log(prodQuantity);
+    if (!product) {
+        return <div>Carregando...</div>;
     }
 
     return (
@@ -31,27 +44,20 @@ export function Product() {
                 <ul>
                     <li><a href="/">Página Principal</a><img src="/images/chevron.svg" alt="" /></li>
                     <li><a href="/products/architecture/1">Architecture</a><img src="/images/chevron.svg" alt="" /></li>
-                    <li>set_id</li>
+                    <li>{product.set_name}</li>
                 </ul>
             </div>
             <div className="prod-wrapper">
                 <section className="prod-display">
                     <div className="side-images">
-                        <img src="/images/architecture/21061/1-21061.webp" alt="" />
-                        <img src="/images/architecture/21061/1-21061.webp" alt="" />
-                        <img src="/images/architecture/21061/1-21061.webp" alt="" />
-                        <img src="/images/architecture/21061/1-21061.webp" alt="" />
-                        <img src="/images/architecture/21061/1-21061.webp" alt="" />
-                        <img src="/images/architecture/21061/1-21061.webp" alt="" />
-                        <img src="/images/architecture/21061/1-21061.webp" alt="" />
-                        <img src="/images/architecture/21061/1-21061.webp" alt="" />
-                        <img src="/images/architecture/21061/1-21061.webp" alt="" />
-                        <img src="/images/architecture/21061/1-21061.webp" alt="" />
-                        <img src="/images/architecture/21061/1-21061.webp" alt="" />
-                        <img src="/images/architecture/21061/1-21061.webp" alt="" />
+                        {Array.from({ length: sideImagesCount }, (_, index) => (
+                            product.images.map((image, index) => (
+                                <img key={index} src={image} alt={`${product.set_name} ${index + 1}`} onClick={() => setMainImage(image)} />
+                            ))
+                        ))}    
                     </div>
                     <div className="main-image">
-                        <img src="/images/architecture/21061/1-21061.webp" alt="" />
+                        <img src={mainImage || product.images[0]} alt={product.set_name} />
                     </div>
                 </section>
                 <div className="infoBuy">
@@ -60,19 +66,19 @@ export function Product() {
                         <a href="/products/architecture/1"><img src="/images/architecture/architecture_logo.png" alt="" /></a>
                     </div>
                     <div className="name">
-                        <h2>Notre-Dame de Paris</h2>
+                        <h2>{product.set_name}</h2>
                     </div>
                     <div className="price">
-                        <span>229.99€</span>
+                        <span>{product.set_price}€</span>
                     </div>
                     <div className="statusmsg">
                         <span>Aceitam-se reservas. Serão enviadas a partir de 17 de julho de 2024.</span>
                     </div>
                     <form className="quantity" onSubmit={handleSubmit}>
                         <label>
-                            <button className="removeBtn" type="button" onClick={() => setX(x - 1)}><img src="/images/remove.svg" alt="" /></button>
-                            <input type="text" name="quantity" value={x} disabled />
-                            <button className="addBtn" type="button" onClick={() => setX(x + 1)}><img src="/images/add.svg" alt="" /></button>
+                            <button className="removeBtn" type="button" onClick={handleDecrease}><img src="/images/remove.svg" alt="" /></button>
+                            <input type="text" name="quantity" value={quantity} disabled />
+                            <button className="addBtn" type="button" onClick={handleIncrease}><img src="/images/add.svg" alt="" /></button>
                             <span>Limite: 3</span>
                         </label>
                         <div className="form-bot-btn">

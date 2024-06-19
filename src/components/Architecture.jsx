@@ -73,25 +73,27 @@ export default function Architecture() {
                         {
                             prodfilter.filter((texted) => text === "" || texted.set_name.toLowerCase().includes(text.toLowerCase())).map((prodfilter) => (
                                 <div className="product" key={prodfilter.set_id}>
-                                    <div className="images">
-                                        <div className="img-btns-wrapper">
-                                            <div className="img-btns">
-                                                <button className="img-change" type="button" onClick={() => toggleButtonImage(prodfilter.set_id)} disabled={buttonImageIndexes[prodfilter.set_id] === 0}></button>
-                                                <button className="img-change" type="button" onClick={() => toggleButtonImage(prodfilter.set_id)} disabled={buttonImageIndexes[prodfilter.set_id] === 1}></button>
+                                    <NavLink to={`/product/${prodfilter.set_id}`}>
+                                        <div className="images">
+                                            <div className="img-btns-wrapper">
+                                                <div className="img-btns">
+                                                    <button className="img-change" type="button" onClick={() => toggleButtonImage(prodfilter.set_id)} disabled={buttonImageIndexes[prodfilter.set_id] === 0}></button>
+                                                    <button className="img-change" type="button" onClick={() => toggleButtonImage(prodfilter.set_id)} disabled={buttonImageIndexes[prodfilter.set_id] === 1}></button>
+                                                </div>
+                                            </div>
+                                            <div className="img1-wrapper">
+                                                <img className="img1" src={prodfilter.images[buttonImageIndexes[prodfilter.set_id] || 0]} alt="" />
                                             </div>
                                         </div>
-                                        <div className="img1-wrapper">
-                                            <img className="img1" src={prodfilter.images[buttonImageIndexes[prodfilter.set_id] || 0]} alt="" />
+                                        <div className="age-piece-rating">
+                                            <div><img src="/images/age-o.svg" alt="" /> {prodfilter.ages}</div>
+                                            <div><img src="/images/brick-o.svg" alt="" /> {prodfilter.piece_count}</div>
+                                            <div><img src="/images/star-f.svg" alt="" /> {prodfilter.star_rating}</div>
                                         </div>
-                                    </div>
-                                    <div className="age-piece-rating">
-                                        <div><img src="/images/age-o.svg" alt="" /> {prodfilter.ages}</div>
-                                        <div><img src="/images/brick-o.svg" alt="" /> {prodfilter.piece_count}</div>
-                                        <div><img src="/images/star-f.svg" alt="" /> {prodfilter.star_rating}</div>
-                                    </div>
-                                    <h3 className="name">{prodfilter.set_name}</h3>
-                                    <div className="price">{prodfilter.set_price + "$"}</div>
-                                    <button className="addCart" type="button" onClick={() => handleAddToCart({ ...prodfilter })}><img src="/images/bag.svg" alt="" />Adicionar ao Cesto</button>
+                                        <h3 className="name">{prodfilter.set_name}</h3>
+                                        <div className="price">{prodfilter.set_price + "$"}</div>
+                                        <button className="addCart" type="button" onClick={() => handleAddToCart({ ...prodfilter })}><img src="/images/bag.svg" alt="" />Adicionar ao Cesto</button>
+                                    </NavLink>
                                 </div>
                             ))
                         }

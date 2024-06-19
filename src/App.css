@@ -501,6 +501,7 @@
   max-width: 100px;
   margin: 1px;
   border: 1px solid #cbcbcb;
+  cursor: pointer;
 }
 .Product .prod-display .main-image {
   padding: 10px;
@@ -692,14 +693,13 @@
 .product-list .product .images .img-btns-wrapper {
   position: absolute;
   width: 100%;
-  height: 100%;
 }
 .product-list .product .images .img-btns {
-  display: flex;
+  display: grid;
+  grid-template-columns: auto auto;
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  height: 100%;
 }
 .img-change {
   width: 50px;
@@ -737,6 +737,7 @@
 .product-list .product .images .img1-wrapper .img1 {
   max-width: 100%;
   max-height: 416px;
+  cursor: pointer;
 }
 .product-list .product .name-rating {
   display: inline-flex;
