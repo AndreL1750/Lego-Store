@@ -35,7 +35,7 @@ export function Product() {
       }
 
     if (!product) {
-        return <div>Carregando...</div>;
+        return <div>A Carregar...</div>;
     }
 
     return (

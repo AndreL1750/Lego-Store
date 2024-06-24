@@ -10,11 +10,14 @@ export function CartProvider({ children }) {
 
     if (existingItemIndex !== -1) {
       const updatedCartItems = [...cartItems];
+      
       if (updatedCartItems[existingItemIndex].quantity < 3) {
         updatedCartItems[existingItemIndex].quantity += 1;
       }
       setCartItems(updatedCartItems);
-    } else {
+    
+    } 
+    else {
       setCartItems(prevItems => [...prevItems, { ...product, quantity }]);
     }
   };
@@ -26,6 +29,7 @@ export function CartProvider({ children }) {
     const increaseItemQuantity = (productId) => {
         const updatedCartItems = [...cartItems];
         const itemToIncrease = updatedCartItems.find(item => item.set_id === productId);
+        
         if (itemToIncrease && itemToIncrease.quantity < 3) {
           itemToIncrease.quantity += 1;
           setCartItems(updatedCartItems);
@@ -35,6 +39,7 @@ export function CartProvider({ children }) {
       const decreaseItemQuantity = (productId) => {
         const updatedCartItems = [...cartItems];
         const itemToDecrease = updatedCartItems.find(item => item.set_id === productId);
+        
         if (itemToDecrease && itemToDecrease.quantity > 1) {
           itemToDecrease.quantity -= 1;
           setCartItems(updatedCartItems);
@@ -51,12 +56,13 @@ export function CartProvider({ children }) {
 
     return (
         <CartContext.Provider value={{ cartItems, addItemToCart, removeItemFromCart, increaseItemQuantity, decreaseItemQuantity, clearCart, calculateSubtotal }}>
-        {children}
+          {children}
         </CartContext.Provider>
     );
 }
 
 export function useCart() {
     const context = useContext(CartContext);
+    
     return context;
 }

@@ -89,7 +89,6 @@ export default function Navbar() {
 
     return (
         <nav className="Navbar">
-            <Cart />
             <div className="menu-wrapper">
                 <div>
                     <div className="Nav-Btn">
@@ -292,8 +291,8 @@ export default function Navbar() {
                 </div>
                 <div className="menu-content" style={{display: menuDisplay, maxWidth: contentMaxWidth}}></div>
                 <div className="menu-content-dark" style={{display: menuDisplay}} onClick={menuClose}></div>
+                <Cart />
             </div> 
-
         </nav>
     );
 }
