@@ -79,8 +79,8 @@ export default function Architecture() {
                         <option>Classificação</option>
                     </select>
                 </div>
-            </div>
             <input type="text" value={text} placeholder="Procurar..." onChange={(e) => setText(e.target.value)}  />
+            </div>
             <section className="prod-section">
                 <Filters />
                 <div className="content">
