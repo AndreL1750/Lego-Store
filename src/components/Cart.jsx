@@ -33,7 +33,9 @@ function Cart() {
                         </div>
                     </div>) : cartItems.map((prodfilter, set_id) => (
                     <li key={set_id}>
-                        <img className="cart-img" src={prodfilter.images[0]} alt="" />
+                        <NavLink to={`/product/${prodfilter.set_id}`}>
+                                <img className="cart-img" src={prodfilter.images[0]} alt="" />
+                        </NavLink>
                         <div>
                             <h3>{prodfilter.set_name}</h3> 
                             <div>{prodfilter.set_price + "€"}</div>
