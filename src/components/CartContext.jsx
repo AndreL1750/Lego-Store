@@ -1,11 +1,18 @@
-import React, { createContext, useState, useContext } from 'react';
+import React, { createContext, useState, useContext, useEffect } from 'react';
 
 const CartContext = createContext();
 
 export function CartProvider({ children }) {
-  const [cartItems, setCartItems] = useState([]);
+  const [cartItems, setCartItems] = useState(() => {
+    const savedCartItems = sessionStorage.getItem('cartItems');
+    return savedCartItems ? JSON.parse(savedCartItems) : [];
+  });
 
-  const addItemToCart = (product, quantity) => { // Alteração aqui: recebendo quantity como argumento
+  useEffect(() => {
+    sessionStorage.setItem('cartItems', JSON.stringify(cartItems));
+  }, [cartItems]);
+
+  const addItemToCart = (product, quantity) => {
     const existingItemIndex = cartItems.findIndex(item => item.set_id === product.set_id);
 
     if (existingItemIndex !== -1) {

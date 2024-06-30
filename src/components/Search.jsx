@@ -1,9 +1,12 @@
 
-export default function Search(props) {
+
+export default function Search() {
+
+    
 
     return (
-        <main className="Search">
-
-        </main>
-    );
+        <div className="Search">
+            
+        </div>
+  );
 }

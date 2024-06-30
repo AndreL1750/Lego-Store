@@ -7,6 +7,7 @@ import Footer from './components/Footer';
 import Architecture from './components/Architecture';
 import { Product } from './components/Product';
 import Search from './components/Search';
+import Checkout from './components/Checkout';
 
 function App() {
   
@@ -20,6 +21,7 @@ function App() {
           <Route path="/search/:page" element={<Search />} />
           <Route path="/products/architecture/:page" element={<Architecture />} />
           <Route path="/product/:id" element={<Product />} />
+          <Route path="/checkout" element={<Checkout />} />
         </Routes>
         <Footer />
       </div>

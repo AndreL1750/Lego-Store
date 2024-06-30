@@ -12,7 +12,6 @@ export default function Architecture() {
     const [quantity] = useState(1);
     const [filterOption, setFilterOption] = useState('Recomendados');
 
-
     const handleAddToCart = (product) => {
         if (product.set_name && product.set_price) {
           addItemToCart(product, quantity);
