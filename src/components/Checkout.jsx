@@ -22,7 +22,7 @@ export default function Checkout() {
         "LegoIsLife": 0.85,
         "LegoFan": 0.80
     };
-
+ 
     useEffect(() => {
         setTaxedSubtotal(parseFloat((calculateSubtotal() * discount).toFixed(2)));
     }, [cartItems, discount, calculateSubtotal]);
@@ -31,6 +31,7 @@ export default function Checkout() {
     const [input, setInputStatus] = useState(false);
     const [promoStatus, setPromoStatus] = useState(false);
     const [chevronStatus, setChevronStatus] = useState(false);
+    const [isCodeValid, setIsCodeValid] = useState(null);
 
     const chevronRotate = chevronStatus ? "-270deg" : "-90deg";
     const promoDisplay = promoStatus ? "block" : "none";
@@ -40,12 +41,16 @@ export default function Checkout() {
         if (input) {
             setDiscount(1);
             setInputStatus(false);
-        } else if (codes[codeInput]) {
-            console.log("Work");
+            setIsCodeValid(null);
+            setCodeInput("");
+        } 
+        else if (codes[codeInput]) {
             setInputStatus(true);
             setDiscount(codes[codeInput]);
-        } else {
-            console.log("Deny");
+            setIsCodeValid(true);
+        } 
+        else {
+            setIsCodeValid(false);
         }
     }
 
@@ -91,10 +96,12 @@ export default function Checkout() {
                         <button type="button" className="promo-btn" onClick={() => {setPromoStatus(!promoStatus); setChevronStatus(!chevronStatus)}}><span>Adicionar Código Promocional</span><img style={{transform: 'rotate('+chevronRotate+')', transition: "all 0.1s linear"}} src="/images/chevron.svg" alt="" /></button>
                         <div style={{display: promoDisplay}} className="promo-input">
                             <label>
-                                <input type="text" placeholder="Introduzir Código..." disabled={input} onChange={(e) => {setCodeInput(e.target.value); console.log(codeInput);}} />
+                                <input type="text" placeholder="Introduzir Código..." value={codeInput} disabled={input} onChange={(e) => {setCodeInput(e.target.value); console.log(codeInput);}} />
                                 <button type="button" onClick={promoHandler}>{text}</button>
                             </label>
                         </div>
+                        {isCodeValid === true && promoStatus === true && (<div className="codeValid"><img src="/images/check.svg" alt="" /><span>Código Válido.</span></div>)}
+                        {isCodeValid === false && promoStatus === true && (<div className="codeInvalid"><img src="/images/cross.svg" alt="" /><span>Código Inválido.</span></div>)}
                     </div>
                     <div className="subtotal"><span>Total da Encomenda:</span><span>{taxedSubtotal}€</span></div>
                     {discountAmount > 0 && (

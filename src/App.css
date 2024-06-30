@@ -514,6 +514,7 @@
 /* Product:id */
 .Product {
   max-width: 60%;
+  min-height: 65vh;
   margin: 0 auto;
 }
 .Product .path {
@@ -1018,12 +1019,11 @@
   width: 10px;
 }
 .Checkout .cart-wrapper .cart-side {
-  display: block;
   border: 1px solid #cbcbcb;
   margin-left: 5px;
   padding: 10px;
   min-width: 278px;
-  max-height: 350px;
+  max-height: 370px;
 }
 .Checkout .cart-wrapper .cart-side h2 {
   font-size: 2rem;
@@ -1051,7 +1051,7 @@
 }
 .Checkout .cart-wrapper .cart-side .promo-input {
   width: 100%;
-  padding: 0 10px 10px 10px;
+  padding: 0 10px 5px 10px;
 }
 .Checkout .cart-wrapper .cart-side .promo-input label {
   display: flex;
@@ -1069,6 +1069,20 @@
   background-color: #cbcbcb;
   border-radius: 0 2px 2px 0;
   cursor: pointer;
+}
+.Checkout .cart-wrapper .cart-side .codeValid {
+  color: #11a911;
+}
+.Checkout .cart-wrapper .cart-side .codeInvalid {
+  color: #f00;
+}
+.Checkout .cart-wrapper .cart-side .codeValid, .Checkout .cart-wrapper .cart-side .codeInvalid {
+  display: flex;
+  padding: 0px 10px 5px 10px;
+}
+.Checkout .cart-wrapper .cart-side .codeValid img, .Checkout .cart-wrapper .cart-side .codeInvalid img {
+  padding-right: 3px;
+  max-width: 10px;
 }
 .Checkout .cart-wrapper .cart-side .subtotal {
   justify-content: space-between;
@@ -1136,9 +1150,44 @@
 .Checkout .cart-wrapper .cart-side .payment-methods img:last-child {
   margin-right: 0;
 }
+@media (max-width: 1600px) {
+  .Checkout {
+    margin: 0 15px;
+    max-width: 100%;
+  }
+}
+@media (max-width: 800px) {
+  .Checkout {
+    min-height: auto;
+  }
+  .Checkout .cart-wrapper {
+    flex-wrap: wrap;
+    flex-direction: column;
+  }
+  .Checkout .cart-wrapper .cart-side {
+    margin: 5px 0 0 0;
+  }
+  .Checkout ul li {
+    max-width: 100%;
+  }
+  .Checkout .empty-cart {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+    height: 100%;
+    color: #2c2c2c;
+    margin: 50px 0;
+  }
+  .Checkout .empty-cart svg {
+    height: 40px;
+    width: 40px;
+    color: #006db7;
+    padding: 10px 0;
+  }
 
 
-
+}
 
 /* Footer */
 .Footer {
