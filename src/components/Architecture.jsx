@@ -2,9 +2,11 @@ import Filters from "./Filters";
 import { NavLink, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useCart } from './CartContext';
+import Slider from "react-slick";
 
 export default function Architecture() {
     const params = useParams();
+    const theme = params.theme;
     const [products, setProducts] = useState([]);
     const [prodfilter, setProdFilter] = useState([]);
     const productsPerPage = 18;
@@ -49,15 +51,6 @@ export default function Architecture() {
         setProdFilter(sortedProducts.slice(startIndex, endIndex));
     }, [params, products, filterOption]);
 
-    const [buttonImageIndexes, setButtonImageIndexes] = useState({});
-
-    const toggleButtonImage = (setId) => {
-        setButtonImageIndexes(prevState => ({
-            ...prevState,
-            [setId]: (prevState[setId] || 0) === 0 ? 1 : 0
-        }));
-    };
-
     const [text, setText] = useState("");
 
     const totalPages = Math.ceil(products.length / productsPerPage);
@@ -65,40 +58,50 @@ export default function Architecture() {
     const previousPage = Math.max(currentPage - 1, 1);
     const nextPage = Math.min(currentPage + 1, totalPages);
 
+    const sliderSettings = {
+        dots: true,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        arrows: false
+    };
+
     return (
         <main className="Architecture">
-            <div className="filtering">
-                <div>A mostrar {prodfilter.length} produto(s)</div>
-                <div className="filter-div">
-                    Filter:
-                    <select className="filter" value={filterOption} onChange={(e) => setFilterOption(e.target.value)}>
-                        <option>Recomendados</option>
-                        <option>Preço: Mais baixo a mais alto</option>
-                        <option>Preço: Mais alto a mais baixo</option>
-                        <option>Classificação</option>
-                    </select>
-                </div>
             <input type="text" value={text} placeholder="Procurar..." onChange={(e) => setText(e.target.value)}  />
-            </div>
             <section className="prod-section">
+                
                 <Filters />
                 <div className="content">
+                    <div className="filtering">
+                        <div>A mostrar {1} produto(s)</div>
+                        <div className="filter-div">
+                            Filter:
+                            <select className="filter" value={filterOption} onChange={(e) => setFilterOption(e.target.value)}>
+                                <option>Recomendados</option>
+                                <option>Preço: Mais baixo a mais alto</option>
+                                <option>Preço: Mais alto a mais baixo</option>
+                                <option>Classificação</option>
+                            </select>
+                        </div>
+                    </div>
                     <div className="product-list">
                         {
-                            prodfilter.filter((texted) => text === "" || texted.set_name.toLowerCase().includes(text.toLowerCase())).map((prodfilter) => (
+                            prodfilter.filter((texted) => text === "" || texted.set_name.toLowerCase().includes(text.toLowerCase())).filter((filteredProduct) => theme === undefined || filteredProduct.theme_name === theme).map((prodfilter) => (
                                 <div className="product" key={prodfilter.set_id}>
                                     <div className="images">
-                                        <div className="img-btns-wrapper">
-                                            <div className="img-btns">
-                                                <button className="img-change" type="button" onClick={() => toggleButtonImage(prodfilter.set_id)} disabled={buttonImageIndexes[prodfilter.set_id] === 0}></button>
-                                                <button className="img-change" type="button" onClick={() => toggleButtonImage(prodfilter.set_id)} disabled={buttonImageIndexes[prodfilter.set_id] === 1}></button>
-                                            </div>
-                                        </div>
-                                        <NavLink to={`/product/${prodfilter.set_id}`}>
-                                            <div className="img1-wrapper">
-                                                <img className="img1" src={prodfilter.images[buttonImageIndexes[prodfilter.set_id] || 0]} alt="" />
-                                            </div>
-                                        </NavLink>
+                                        <Slider {...sliderSettings}>
+                                            {prodfilter.images.map((image, index) => (
+                                                <div key={index}>
+                                                    <NavLink to={`/product/${prodfilter.set_id}`}>
+                                                        <div className="img1-wrapper">
+                                                            <img className="img1" src={image} alt={`Slide ${index}`} />
+                                                        </div>
+                                                    </NavLink>
+                                                </div>
+                                            ))}
+                                        </Slider>
                                     </div>
                                     <div className="age-piece-rating">
                                         <div><img src="/images/age-o.svg" alt="" /> {prodfilter.ages}</div>

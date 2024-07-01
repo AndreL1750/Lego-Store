@@ -8,6 +8,8 @@ import Architecture from './components/Architecture';
 import { Product } from './components/Product';
 import Search from './components/Search';
 import Checkout from './components/Checkout';
+import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick-theme.css";
 
 function App() {
   
@@ -19,7 +21,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/search/:page" element={<Search />} />
-          <Route path="/products/architecture/:page" element={<Architecture />} />
+          <Route path="/products/:theme/:page" element={<Architecture />} />
           <Route path="/product/:id" element={<Product />} />
           <Route path="/checkout" element={<Checkout />} />
         </Routes>

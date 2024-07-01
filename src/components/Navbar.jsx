@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import Cart from "./Cart";
 import { NavLink } from "react-router-dom";
 
-export default function Navbar() {
+export default function Navbar({ handleThemeSelect, selectedTheme }) {
     
     const [menuStatus, setMenuStatus] = useState(false);
     
@@ -88,6 +88,10 @@ export default function Navbar() {
         setMenuStatus(false);
     }
 
+    const url = ["Architecture", "Ideas", "Marvel", "Batman", "Jurassic-World", "Minecraft", "The-Botanical-Collection", "LEGO-Animal-Crossing", "Minifiguras", "BrickHeadz", "LEGO-Art", "NINJAGO", "City", "LEGO-Avatar", "Powered-UP", "Classic", "LEGO-Braille-Bricks", "SERIOUS-PLAY", "Creator-3in1", "LEGO-DREAMZzz™", "Sonic-the-Hedgehog", "Creator-Expert", "LEGO-DUPLO", "Speed-Champions", "DC", "LEGO-Education", "Spider-Man", "Gru-O-Maldisposto-4", "Star-Wars", "Disney", "LEGO-Icons", "Technic"];
+
+    const themesarr = ["Architecture", "Ideas", "Marvel", "Batman", "Jurassic World", "Minecraft", "A Coleção Botânica", "LEGO Animal Crossing", "Minifiguras", "BrickHeadz", "LEGO Art", "NINJAGO", "City", "LEGO Avatar", "Powered UP", "Classic", "LEGO Braille Bricks", "SERIOUS PLAY", "Creator 3in1", "LEGO DREAMZzz™", "Sonic the Hedgehog", "Creator Expert", "LEGO DUPLO", "Speed Champions", "DC", "LEGO Education", "Spider-Man", "Gru: O Maldisposto 4", "Star Wars", "Disney", "LEGO Icons", "Technic" ];
+
     return (
         <nav className="Navbar">
             <div className="menu-wrapper">
@@ -112,39 +116,11 @@ export default function Navbar() {
                             <li style={{display: themeDisplay}}><div className="grid-list styleAnch">
                                     <div className="grid-list-top-text"><a href="/">Ver todos os temas</a></div>
                                     <ul>
-                                        <li><a href="/products/architecture/1">Architecture</a></li>
-                                        <li><a href="/">Ideas</a></li>
-                                        <li><a href="/">Marvel</a></li>
-                                        <li><a href="/">Batman™</a></li>
-                                        <li><a href="/">Jurassic World</a></li>
-                                        <li><a href="/">Minecraft®</a></li>
-                                        <li><a href="/">A Coleção Botânica</a></li>
-                                        <li><a href="/">LEGO® Animal Crossing™</a></li>
-                                        <li><a href="/">Minifiguras</a></li>
-                                        <li><a href="/">BrickHeadz</a></li>
-                                        <li><a href="/">LEGO® Art</a></li>
-                                        <li><a href="/">NINJAGO®</a></li>
-                                        <li><a href="/">City</a></li>
-                                        <li><a href="/">LEGO® Avatar</a></li>
-                                        <li><a href="/">Powered UP</a></li>
-                                        <li><a href="/">Classic</a></li>
-                                        <li><a href="/">LEGO® Braille Bricks</a></li>
-                                        <li><a href="/">SERIOUS PLAY®</a></li>
-                                        <li><a href="/">Creator 3in1</a></li>
-                                        <li><a href="/">LEGO® DREAMZzz™</a></li>
-                                        <li><a href="/">Sonic the Hedgehog™</a></li>
-                                        <li><a href="/">Creator Expert</a></li>
-                                        <li><a href="/">LEGO® DUPLO®</a></li>
-                                        <li><a href="/">Speed Champions</a></li>
-                                        <li><a href="/">DC</a></li>
-                                        <li><a href="/">LEGO® Education</a></li>
-                                        <li><a href="/">Spider-Man</a></li>
-                                        <li><a href="/">Gru: O Maldisposto 4</a></li>
-                                        <li><a href="/">LEGO® Casa das Bonecas de Gabby</a></li>
-                                        <li><a href="/">Star Wars™</a></li>
-                                        <li><a href="/">Disney</a></li>
-                                        <li><a href="/">LEGO® Icons</a></li>
-                                        <li><a href="/">Technic</a></li>
+                                        {themesarr.map((theme, index) => (
+                                            <li key={index}>
+                                                <NavLink onMouseEnter={() => handleThemeSelect(theme)} onClick={menuClose} to={`/products/${theme}/1`}>{theme}</NavLink>
+                                            </li>
+                                        ))}
                                     </ul>
                                 </div>
                             </li>
