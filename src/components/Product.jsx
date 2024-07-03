@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { NavLink, useParams } from "react-router-dom";
 import { useCart } from './CartContext';
 
 export function Product() {
@@ -28,8 +28,7 @@ export function Product() {
         setQuantity(prevQuantity => Math.min(3, prevQuantity + 1));
     }
 
-    function handleSubmit(e) {
-        e.preventDefault();
+    function handleAddToCart() {
         addItemToCart(product, quantity);
         console.log(product, quantity);
       }
@@ -42,8 +41,10 @@ export function Product() {
         <main className="Product">
             <div className="path">
                 <ul>
-                    <li><a href="/">Página Principal</a><img src="/images/chevron.svg" alt="" /></li>
-                    <li><a href="/products/architecture/1">Architecture</a><img src="/images/chevron.svg" alt="" /></li>
+                    <li><NavLink to={"/"}>Página Principal</NavLink></li>
+                    <li><img src="/images/chevron.svg" alt="" /></li>
+                    <li><NavLink to={`/products/search/1`}>Procurar</NavLink></li>
+                    <li><img src="/images/chevron.svg" alt="" /></li>
                     <li>{product.set_name}</li>
                 </ul>
             </div>
@@ -61,8 +62,8 @@ export function Product() {
                     </div>
                 </section>
                 <div className="infoBuy">
-                    <div className="exclusive">
-                        <span>Novidades</span>
+                    <div className="tags">
+                        { product.tags === "exclusive" ? (<span>Exclusivo</span>) : product.tags === "new" ? (<span>Novidade</span>) : product.tags === "hardtofind" ? (<span>Difícil de Encontrar</span>) : (<></>)}
                         <a href="/products/architecture/1"><img src="/images/architecture/architecture_logo.png" alt="" /></a>
                     </div>
                     <div className="name">
@@ -72,9 +73,9 @@ export function Product() {
                         <span>{product.set_price}€</span>
                     </div>
                     <div className="statusmsg">
-                        <span>Aceitam-se reservas. Serão enviadas a partir de 17 de julho de 2024.</span>
+                        {product.prod_status === "preorder" && <span>Aceitam-se reservas. Serão enviadas até 7 dias após lançamento.</span>}
                     </div>
-                    <form className="quantity" onSubmit={handleSubmit}>
+                    <div className="quantity">
                         <label>
                             <button className="removeBtn" type="button" onClick={handleDecrease}><img src="/images/remove.svg" alt="" /></button>
                             <input type="text" name="quantity" value={quantity} disabled />
@@ -82,10 +83,10 @@ export function Product() {
                             <span>Limite: 3</span>
                         </label>
                         <div className="form-bot-btn">
-                            <button className="form-submit" type="submit"><img src="/images/bag.svg" alt="" />Adicionar ao Carrinho</button>
-                            <button className="wishlist" type="button"><img src="/images/wishlist.svg" alt="" /></button>
+                        {product.prod_status === "preorder" ? (<button className="addCart preorder" type="button" onClick={() => handleAddToCart({ ...product })}><img src="/images/bag.svg" alt="" />Reserva</button>) : product.prod_status === "unavailable" ? (<button className="addCart unavailable" type="button"  disabled><img src="/images/bag.svg" alt="" />Indisponível</button>) : (<button className="addCart available" type="button" onClick={() => handleAddToCart({ ...product })}><img src="/images/bag.svg" alt="" />Adicionar ao Cesto</button>)}
+                        <button className="wishlist" type="button"><img src="/images/wishlist.svg" alt="" /></button>
                         </div>
-                    </form>
+                    </div>
                 </div>
             </div>
         </main>

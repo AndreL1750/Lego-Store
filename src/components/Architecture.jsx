@@ -1,18 +1,20 @@
 import Filters from "./Filters";
-import { NavLink, useParams } from "react-router-dom";
+import { NavLink, useLocation, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useCart } from './CartContext';
 import Slider from "react-slick";
 
-export default function Architecture() {
+export default function Architecture({ handleThemeSelect, selectedTheme, handleText, text }) {
     const params = useParams();
     const theme = params.theme;
     const [products, setProducts] = useState([]);
+    const [searchProducts, setSearchProducts] = useState([]);
     const [prodfilter, setProdFilter] = useState([]);
     const productsPerPage = 18;
     const { addItemToCart } = useCart();
     const [quantity] = useState(1);
     const [filterOption, setFilterOption] = useState('Recomendados');
+    const location = useLocation();
 
     const handleAddToCart = (product) => {
         if (product.set_name && product.set_price) {
@@ -49,9 +51,9 @@ export default function Architecture() {
         const endIndex = startIndex + productsPerPage;
         const sortedProducts = sortProducts(products);
         setProdFilter(sortedProducts.slice(startIndex, endIndex));
+        setSearchProducts(sortedProducts.slice(startIndex, endIndex));
     }, [params, products, filterOption]);
 
-    const [text, setText] = useState("");
 
     const totalPages = Math.ceil(products.length / productsPerPage);
     const currentPage = parseInt(params.page, 10) || 1;
@@ -69,15 +71,12 @@ export default function Architecture() {
 
     return (
         <main className="Architecture">
-            <input type="text" value={text} placeholder="Procurar..." onChange={(e) => setText(e.target.value)}  />
             <section className="prod-section">
-                
                 <Filters />
                 <div className="content">
                     <div className="filtering">
-                        <div>A mostrar {1} produto(s)</div>
+                        <div>A mostrar {prodfilter.length} produto(s)</div>
                         <div className="filter-div">
-                            Filter:
                             <select className="filter" value={filterOption} onChange={(e) => setFilterOption(e.target.value)}>
                                 <option>Recomendados</option>
                                 <option>Preço: Mais baixo a mais alto</option>
@@ -87,14 +86,40 @@ export default function Architecture() {
                         </div>
                     </div>
                     <div className="product-list">
-                        {
-                            prodfilter.filter((texted) => text === "" || texted.set_name.toLowerCase().includes(text.toLowerCase())).filter((filteredProduct) => theme === undefined || filteredProduct.theme_name === theme).map((prodfilter) => (
-                                <div className="product" key={prodfilter.set_id}>
+                    {   location.pathname.includes("/products/search/") ? 
+                            (searchProducts.filter((texted) => text === "" || texted.set_name.toLowerCase().includes(text.toLowerCase())).filter((searchProducts) => theme === undefined || searchProducts.theme_name === "search").map((searchProducts) => (
+                                <div className="product" key={searchProducts.set_id} onClick={() => console.log(text)}>
+                                    <div className="images">
+                                        <Slider {...sliderSettings}>
+                                            {searchProducts.images.map((image, index) => (
+                                                <div key={index}>
+                                                    <NavLink to={`/product/${searchProducts.set_id}`} >
+                                                        <div className="img1-wrapper">
+                                                            <img className="img1" src={image} alt={`Slide ${index}`} />
+                                                        </div>
+                                                    </NavLink>
+                                                </div>
+                                            ))}
+                                        </Slider>
+                                    </div>
+                                    <div className="age-piece-rating">
+                                        <div><img src="/images/age-o.svg" alt="" /> {searchProducts.ages}</div>
+                                        <div><img src="/images/brick-o.svg" alt="" /> {searchProducts.piece_count}</div>
+                                        <div><img src="/images/star-f.svg" alt="" /> {searchProducts.star_rating}</div>
+                                    </div>
+                                    <h3 className="name">{searchProducts.set_name}</h3>
+                                    <div className="price">{searchProducts.set_price + "$"}</div>
+                                    {searchProducts.prod_status === "preorder" ? (<button className="addCart preorder" type="button" onClick={() => handleAddToCart({ ...searchProducts })}><img src="/images/bag.svg" alt="" />Reserva</button>) : searchProducts.prod_status === "unavailable" ? (<button className="addCart unavailable" type="button"  disabled><img src="/images/bag.svg" alt="" />Indisponível</button>) : (<button className="addCart available" type="button" onClick={() => handleAddToCart({ ...searchProducts })}><img src="/images/bag.svg" alt="" />Adicionar ao Cesto</button>)}
+                                </div>
+                            )))
+                            :
+                            (prodfilter.filter((texted) => text === "" || texted.set_name.toLowerCase().includes(text.toLowerCase())).filter((filteredProduct) => theme === undefined || filteredProduct.theme_name === theme).map((prodfilter) => (
+                                <div className="product" key={prodfilter.set_id} onClick={() => console.log(text)}>
                                     <div className="images">
                                         <Slider {...sliderSettings}>
                                             {prodfilter.images.map((image, index) => (
                                                 <div key={index}>
-                                                    <NavLink to={`/product/${prodfilter.set_id}`}>
+                                                    <NavLink to={`/product/${theme}/${prodfilter.set_id}`}>
                                                         <div className="img1-wrapper">
                                                             <img className="img1" src={image} alt={`Slide ${index}`} />
                                                         </div>
@@ -110,26 +135,26 @@ export default function Architecture() {
                                     </div>
                                     <h3 className="name">{prodfilter.set_name}</h3>
                                     <div className="price">{prodfilter.set_price + "$"}</div>
-                                    <button className="addCart" type="button" onClick={() => handleAddToCart({ ...prodfilter })}><img src="/images/bag.svg" alt="" />Adicionar ao Cesto</button>
+                                    {prodfilter.prod_status === "preorder" ? (<button className="addCart preorder" type="button" onClick={() => handleAddToCart({ ...prodfilter })}><img src="/images/bag.svg" alt="" />Reserva</button>) : prodfilter.prod_status === "unavailable" ? (<button className="addCart unavailable" type="button"  disabled><img src="/images/bag.svg" alt="" />Indisponível</button>) : (<button className="addCart available" type="button" onClick={() => handleAddToCart({ ...prodfilter })}><img src="/images/bag.svg" alt="" />Adicionar ao Cesto</button>)}
                                 </div>
-                            ))
+                            )))
                         }
                     </div>
                 </div>
             </section>
             <div className="next-prev-page">
                 {currentPage && (
-                    <NavLink to={`/products/architecture/${previousPage}`} className="chevron">
+                    <NavLink to={`/products/${theme}/${previousPage}`} className="chevron">
                         <img src="/images/chevron.svg" alt="Página anterior" />
                     </NavLink>
                 )}
                 {Array.from({ length: totalPages }, (_, i) => (
-                    <NavLink key={i + 1} to={`/products/architecture/${i + 1}`}>
+                    <NavLink key={i + 1} to={`/products/${theme}/${i + 1}`}>
                         {i + 1}
                     </NavLink>
                 ))}
                 {currentPage && (
-                    <NavLink to={`/products/architecture/${nextPage}`} className="chevron.rotate">
+                    <NavLink to={`/products/${theme}/${nextPage}`} className="chevron.rotate">
                         <img src="/images/chevron.svg" alt="Próxima página" />
                     </NavLink>
                 )}

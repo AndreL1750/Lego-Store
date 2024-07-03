@@ -6,23 +6,36 @@ import { CartProvider } from './components/CartContext';
 import Footer from './components/Footer';
 import Architecture from './components/Architecture';
 import { Product } from './components/Product';
-import Search from './components/Search';
 import Checkout from './components/Checkout';
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
+import { useState } from 'react';
 
 function App() {
+
+  const [text, setText] = useState("");
+
+  const handleText = (text) => {
+      setText(text);
+  };
+
+  const [selectedTheme, setSelectedTheme] = useState(null);
+
+  const handleThemeSelect = (theme) => {
+      setSelectedTheme(theme);
+  };
   
   return (
     <BrowserRouter>
       <CartProvider>
       <div className="App">
-        <Header />
+        <Header handleText={handleText} text={text} handleThemeSelect={handleThemeSelect} selectedTheme={selectedTheme} />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/search/:page" element={<Search />} />
-          <Route path="/products/:theme/:page" element={<Architecture />} />
-          <Route path="/product/:id" element={<Product />} />
+          <Route path="/products/:theme/:page" element={<Architecture handleText={handleText} text={text} handleThemeSelect={handleThemeSelect} selectedTheme={selectedTheme} />} />
+          <Route path="/products/search/:page" element={<Architecture handleText={handleText} text={text} handleThemeSelect={handleThemeSelect} selectedTheme={selectedTheme} />} />
+          <Route path="/product/:theme/:id" element={<Product  />} />
+          <Route path="/product/:id" element={<Product  />} />
           <Route path="/checkout" element={<Checkout />} />
         </Routes>
         <Footer />

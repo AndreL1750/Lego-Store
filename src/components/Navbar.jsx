@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import Cart from "./Cart";
 import { NavLink } from "react-router-dom";
 
-export default function Navbar({ handleThemeSelect, selectedTheme }) {
+export default function Navbar({ handleThemeSelect, selectedTheme, handleText, text }) {
     
     const [menuStatus, setMenuStatus] = useState(false);
     
@@ -88,9 +88,20 @@ export default function Navbar({ handleThemeSelect, selectedTheme }) {
         setMenuStatus(false);
     }
 
+    const handleChange = (event) => {
+        handleText(event.target.value);
+    };
+
+    const [inputStatus, setInputStatus] = useState(false);
+
+    const inputDisplay = inputStatus ? "block" : "none";
+
     const url = ["Architecture", "Ideas", "Marvel", "Batman", "Jurassic-World", "Minecraft", "The-Botanical-Collection", "LEGO-Animal-Crossing", "Minifiguras", "BrickHeadz", "LEGO-Art", "NINJAGO", "City", "LEGO-Avatar", "Powered-UP", "Classic", "LEGO-Braille-Bricks", "SERIOUS-PLAY", "Creator-3in1", "LEGO-DREAMZzz™", "Sonic-the-Hedgehog", "Creator-Expert", "LEGO-DUPLO", "Speed-Champions", "DC", "LEGO-Education", "Spider-Man", "Gru-O-Maldisposto-4", "Star-Wars", "Disney", "LEGO-Icons", "Technic"];
 
     const themesarr = ["Architecture", "Ideas", "Marvel", "Batman", "Jurassic World", "Minecraft", "A Coleção Botânica", "LEGO Animal Crossing", "Minifiguras", "BrickHeadz", "LEGO Art", "NINJAGO", "City", "LEGO Avatar", "Powered UP", "Classic", "LEGO Braille Bricks", "SERIOUS PLAY", "Creator 3in1", "LEGO DREAMZzz™", "Sonic the Hedgehog", "Creator Expert", "LEGO DUPLO", "Speed Champions", "DC", "LEGO Education", "Spider-Man", "Gru: O Maldisposto 4", "Star Wars", "Disney", "LEGO Icons", "Technic" ];
+
+    console.log(inputStatus);
+    
 
     return (
         <nav className="Navbar">
@@ -118,7 +129,7 @@ export default function Navbar({ handleThemeSelect, selectedTheme }) {
                                     <ul>
                                         {themesarr.map((theme, index) => (
                                             <li key={index}>
-                                                <NavLink onMouseEnter={() => handleThemeSelect(theme)} onClick={menuClose} to={`/products/${theme}/1`}>{theme}</NavLink>
+                                                <NavLink onMouseEnter={() => handleThemeSelect(theme)} onClick={menuClose} to={`/products/${url[index]}/1`}>{theme}</NavLink>
                                             </li>
                                         ))}
                                     </ul>
@@ -276,7 +287,13 @@ export default function Navbar({ handleThemeSelect, selectedTheme }) {
                 </div>
                 <div className="menu-content" style={{display: menuDisplay, maxWidth: contentMaxWidth}}></div>
                 <div className="menu-content-dark" style={{display: menuDisplay}} onClick={menuClose}></div>
-                <Cart />
+                <div className="Nav-Right">
+                    <div>
+                        <input style={{display: inputDisplay}} type="text" value={text} placeholder="Procurar..." onChange={handleChange}  />
+                        <NavLink to="/products/search/1"><button type="button" className="search-btn"><img src="/images/search.svg" alt="" onClick={() => {setInputStatus(!inputStatus)}} /></button></NavLink>
+                    </div>
+                    <Cart />
+                </div>
             </div> 
         </nav>
     );

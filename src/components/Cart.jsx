@@ -54,7 +54,7 @@ function Cart() {
                         <span>Subtotal:</span><span>{calculateSubtotal().toFixed(2)}€</span>
                     </div>
                     <div className="sidebar-btn">
-                        <NavLink style={{margin: "5px auto", borderRadius: "20px"}} to="/checkout"><button className="complete-order" onClick={() => setSubtotalStatus(!subtotalStatus)}>Finalizar Compra Segura</button></NavLink>
+                        <NavLink style={{margin: "5px auto", borderRadius: "20px"}} to="/checkout"><button className="complete-order" onClick={() => {setSubtotalStatus(!subtotalStatus); setDarkSpace(!darkSpace);}}>Finalizar Compra Segura</button></NavLink>
                         <button className="cancel-order" onClick={clearCart}>Limpar Carrinho</button>
                     </div>
                 </div>
