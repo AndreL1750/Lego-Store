@@ -9,7 +9,7 @@ export default function Home() {
                     <h2>Compra os nossos conjuntos mais recentes</h2>
                     <p>Vê os lançamentos mais recentes deste mês, como o novo conjunto Rádio Retro.</p>
                     <div>
-                        <a href="/">
+                        <a href="/products/search/1">
                             Comprar Agora
                             <svg width="18" height="28" viewBox="0 0 18 28" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><path d="M1.825 28L18 14 1.825 0 0 1.715 14.196 14 0 26.285z" fill="currentColor"/></svg>
                         </a>
@@ -18,35 +18,35 @@ export default function Home() {
            </div>
            <div className="section2">
                 <div className="category-btns">
-                    <a href="/">
+                    <a href="/products/search/1">
                         <img src="/images/New.webp" alt="" />
                         <h3>Novidades</h3>
                     </a>
-                    <a href="/">
+                    <a href="/products/search/1">
                         <img src="/images/Exclusive.webp" alt="" />
                         <h3>Exclusivos</h3>
                     </a>
-                    <a href="/">
+                    <a href="/products/search/1">
                         <img src="/images/Offers.webp" alt="" />
                         <h3>Ofertas</h3>
                     </a>
-                    <a href="/">
+                    <a href="/products/search/1">
                         <img src="/images/Ideas.webp" alt="" />
                         <h3>Ideias</h3>
                     </a>
-                    <a href="/">
+                    <a href="/products/search/1">
                         <img src="/images/Icons.webp" alt="" />
                         <h3>LEGO® Icons</h3>
                     </a>
-                    <a href="/">
+                    <a href="/products/search/1">
                         <img src="/images/Disney.webp" alt="" />
                         <h3>Disney</h3>
                     </a>
-                    <a href="/">
+                    <a href="/products/search/1">
                         <img src="/images/GiftCards.webp" alt="" />
                         <h3>Cartões de oferta</h3>
                     </a>
-                    <a href="/">
+                    <a href="/products/search/1">
                         <img src="/images/Insiders.webp" alt="" />
                         <h3>LEGO® Insiders</h3>
                     </a>
@@ -56,15 +56,12 @@ export default function Home() {
                 <div className="video-banner">
                     <div className="video-banner-a">
                         <h3>Descobre as inúmeras formas de explorar o espaço</h3>
-                        <a href="/">Explorar
-                            <svg width="18" height="28" viewBox="0 0 18 28" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><path d="M1.825 28L18 14 1.825 0 0 1.715 14.196 14 0 26.285z" fill="currentColor"/></svg>
-                        </a>
-                        <a href="/">Comprar agora
+                        <a href="/products/search/1">Explorar
                             <svg width="18" height="28" viewBox="0 0 18 28" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><path d="M1.825 28L18 14 1.825 0 0 1.715 14.196 14 0 26.285z" fill="currentColor"/></svg>
                         </a>
                     </div>
                     <div className="Planets-Videos">
-                        <a href="/">
+                        <a href="/products/search/1">
                             <video className="Planets-Display" loop autoPlay muted>
                                 <source src="/videos/Lego-Planets.mp4" type="video/mp4" />
                             </video>
@@ -77,22 +74,13 @@ export default function Home() {
                 <div className="video-banner-b">
                     <h3>Descobre as inúmeras formas de explorar o espaço</h3>
                     <div className="v-banner-b-a">
-                        <a href="/">Explorar
-                            <svg width="18" height="28" viewBox="0 0 18 28" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><path d="M1.825 28L18 14 1.825 0 0 1.715 14.196 14 0 26.285z" fill="currentColor"/></svg>
-                        </a>
-                        <a href="/">Comprar agora
+                        <a href="/products/search/1">Explorar
                             <svg width="18" height="28" viewBox="0 0 18 28" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><path d="M1.825 28L18 14 1.825 0 0 1.715 14.196 14 0 26.285z" fill="currentColor"/></svg>
                         </a>
                     </div>
                 </div>
-                <div className="space-prod-show">
-                    <div className="space-prod-wrapper">
-                        <h3>Explora mais conjuntos espaciais</h3>
-                    </div>
-                </div>
-                <div className="space-banner">
-                    <img className="large" src="/images/Space-Banner.jpg" alt="" />
-                    <img className="small" src="/images/Space-Banner-Small.jpg" alt="" />
+                <div className="slogan">
+                    <img src="/images/lego-logo.svg" alt="" /><q>only the best is good enough</q>
                 </div>
             </div>
         </main>

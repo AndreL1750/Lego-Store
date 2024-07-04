@@ -1,6 +1,6 @@
 export default function Footer() {
     return (
-        <div className="Footer">
+        <footer className="Footer">
             <div className="footer-wrapper">
                 <div>
                     <h3><img src="/images/lego-logo.svg" alt="" /></h3>
@@ -57,6 +57,6 @@ export default function Footer() {
                     </ul>
                 </div>
             </div>
-        </div>
+        </footer>
     );
 }
