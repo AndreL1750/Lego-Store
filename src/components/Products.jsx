@@ -18,6 +18,17 @@ export default function Products({ handleThemeSelect, selectedTheme, handleText,
     const FilterSection = ({ title, filters, isOpen, toggleOpen }) => {
         const styles = isOpen ? "rotate(90deg)" : "rotate(270deg)";
         const display = isOpen ? "block" : "none";
+
+        const [filterStatuses, setFilterStatuses] = useState(
+            filters.reduce((acc, filter) => ({ ...acc, [filter]: false }), {})
+        );
+    
+        const handleFilterChange = (filter) => {
+            setFilterStatuses((prevStatuses) => ({
+                ...prevStatuses,
+                [filter]: !prevStatuses[filter],
+            }));
+        };
     
         return (
             <div>
@@ -36,7 +47,7 @@ export default function Products({ handleThemeSelect, selectedTheme, handleText,
                         {filters.map((filter, index) => (
                             <li key={index}>
                                 <label>
-                                    <input type="checkbox" />
+                                    <input type="checkbox" checked={filterStatuses[filter]} onChange={() => handleFilterChange(filter)} />
                                     <span>{filter}</span>
                                 </label>
                             </li>
@@ -265,7 +276,7 @@ export default function Products({ handleThemeSelect, selectedTheme, handleText,
                                 </div>
                             )))
                             :
-                            (prodfilter.filter((texted) => text === "" || texted.set_name.toLowerCase().includes(text.toLowerCase())).filter((filteredProduct) => theme === undefined || filteredProduct.theme_name === theme).map((prodfilter) => (
+                            (prodfilter.filter((filteredProduct) => theme === undefined || filteredProduct.theme_name === theme).map((prodfilter) => (
                                 <div className="product" key={prodfilter.set_id}>
                                     <div className="images">
                                         <Slider {...sliderSettings}>

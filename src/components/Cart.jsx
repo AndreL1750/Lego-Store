@@ -11,14 +11,15 @@ function Cart() {
     };
 
     const [subtotalStatus, setSubtotalStatus] = useState(false);
-
     const handleSubtotalDisplay = () => setSubtotalStatus(!subtotalStatus);
-
     const subtotalDisplay = subtotalStatus ? "block" : "none";
 
     const [darkSpace, setDarkSpace] = useState(false);
-
     const darkDisplay = darkSpace ? "block" : "none";
+
+    const [confirmationStatus, setConfirmationStatus] = useState(false);
+    const confirmationDisplay = confirmationStatus ? "block" : "none";
+
 
     function cartBtn() {
         return (
@@ -55,10 +56,16 @@ function Cart() {
                     </div>
                     <div className="sidebar-btn">
                         <NavLink style={{margin: "5px auto", borderRadius: "20px"}} to="/checkout"><button className="complete-order" onClick={() => {setSubtotalStatus(!subtotalStatus); setDarkSpace(!darkSpace);}}>Finalizar Compra Segura</button></NavLink>
-                        <button className="cancel-order" onClick={clearCart}>Limpar Carrinho</button>
+                        <button className="cancel-order" onClick={() => setConfirmationStatus(!confirmationStatus)}>Limpar Carrinho</button>
                     </div>
                 </div>
-                    
+                <div style={{display: confirmationDisplay}} className="confirmation-clear sidebar-btn">
+                    <div className="sidebar-btn ">
+                        <h3>Tem mesmo a certeza que quer apagar o seu Carrinho?</h3>
+                        <button className="confirmation-yes complete-order" onClick={() => {clearCart(); setConfirmationStatus(!confirmationStatus);}}>Sim, tenho mesmo a certeza.</button>
+                        <button className="confirmation-no cancel-order" onClick={() => setConfirmationStatus(!confirmationStatus)}>Não, mudei de ideias.</button>
+                    </div>
+                </div>
             </div>
         );
     }

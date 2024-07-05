@@ -10,6 +10,9 @@ export default function Checkout() {
         return cartItems.reduce((total, item) => total + item.quantity, 0);
     };
 
+    const [confirmationStatus, setConfirmationStatus] = useState(false);
+    const confirmationDisplay = confirmationStatus ? "block" : "none";
+
     const [taxedSubtotal, setTaxedSubtotal] = useState(parseFloat(calculateSubtotal().toFixed(2)));
     const [discount, setDiscount] = useState(1);
 
@@ -110,13 +113,20 @@ export default function Checkout() {
                     <div className="iva">Inclui {taxValue}€ de IVA</div>
                     <div className="sidebar-btn">
                         <button className="complete-order"><img src="/images/secure.svg" alt="" />Finalizar Compra Segura</button>
-                        <button className="cancel-order" onClick={clearCart}><img src="/images/trash.svg" alt="" />Limpar Carrinho</button>
+                        <button className="cancel-order" onClick={() => setConfirmationStatus(!confirmationStatus)}><img src="/images/trash.svg" alt="" />Limpar Carrinho</button>
                     </div>
                     <div className="payment-methods">
                         <img src="/images/paypal.svg" alt="" />
                         <img src="/images/visa.svg" alt="" />
                         <img src="/images/mastercard.svg" alt="" />
                         <img src="/images/lego-gift-card.png" alt="" />
+                    </div>
+                </div>
+                <div style={{display: confirmationDisplay}} className="confirmation-clear sidebar-btn">
+                    <div className="sidebar-btn ">
+                        <h3>Tem mesmo a certeza que quer apagar o seu Carrinho?</h3>
+                        <button className="confirmation-yes complete-order" onClick={() => {clearCart(); setConfirmationStatus(!confirmationStatus);}}>Sim, tenho mesmo a certeza.</button>
+                        <button className="confirmation-no cancel-order" onClick={() => setConfirmationStatus(!confirmationStatus)}>Não, mudei de ideias.</button>
                     </div>
                 </div>
             </div>

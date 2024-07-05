@@ -45,7 +45,7 @@ export function Product() {
                 <ul>
                     <li><NavLink to={"/"}>Página Principal</NavLink></li>
                     <li><img src="/images/chevron.svg" alt="" /></li>
-                    <li><NavLink to={`/products/search/1`}>Pesquisa</NavLink></li>
+                    {theme !== undefined ? (<li><NavLink to={`/products/${theme}/1`}>{theme}</NavLink></li>) :(<li><NavLink to={`/products/search/1`}>Pesquisa</NavLink></li>)}
                     <li><img src="/images/chevron.svg" alt="" /></li>
                     <li>{product.set_name}</li>
                 </ul>
