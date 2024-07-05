@@ -187,8 +187,6 @@
 .inputok:focus {
   border: none;
 }
-.inputok:hover .okbtn > {
-}
 .okbtn {
   vertical-align: middle;
   padding: 5px;
@@ -469,7 +467,6 @@
   }
   .Home .section3 .video-banner video {
     max-width: 100%;
-    max-height: auto;
   }
   .Home .section3 .video-banner {
     margin-bottom: -2px;
@@ -790,7 +787,6 @@
   padding-right: 10px;
 }
 .filter-wrapper > div {
-  max-width: auto;
   border-top: 1px solid #e0e0e0;
 }
 .filter-wrapper button {
