@@ -113,7 +113,7 @@ export default function Checkout() {
                     <div className="iva">Inclui {taxValue}€ de IVA</div>
                     <div className="sidebar-btn">
                         <button className="complete-order"><img src="/images/secure.svg" alt="" />Finalizar Compra Segura</button>
-                        <button className="cancel-order" onClick={() => setConfirmationStatus(!confirmationStatus)}><img src="/images/trash.svg" alt="" />Limpar Carrinho</button>
+                        {cartItems.length > 0 ? (<button className="cancel-order" onClick={() => setConfirmationStatus(!confirmationStatus)}>Limpar Carrinho</button>) : (<button className="cancel-order">Limpar Carrinho</button>)}
                     </div>
                     <div className="payment-methods">
                         <img src="/images/paypal.svg" alt="" />

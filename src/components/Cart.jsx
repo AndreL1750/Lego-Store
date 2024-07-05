@@ -56,7 +56,7 @@ function Cart() {
                     </div>
                     <div className="sidebar-btn">
                         <NavLink style={{margin: "5px auto", borderRadius: "20px"}} to="/checkout"><button className="complete-order" onClick={() => {setSubtotalStatus(!subtotalStatus); setDarkSpace(!darkSpace);}}>Finalizar Compra Segura</button></NavLink>
-                        <button className="cancel-order" onClick={() => setConfirmationStatus(!confirmationStatus)}>Limpar Carrinho</button>
+                        {cartItems.length > 0 ? (<button className="cancel-order" onClick={() => setConfirmationStatus(!confirmationStatus)}>Limpar Carrinho</button>) : (<button className="cancel-order">Limpar Carrinho</button>)}
                     </div>
                 </div>
                 <div style={{display: confirmationDisplay}} className="confirmation-clear sidebar-btn">
