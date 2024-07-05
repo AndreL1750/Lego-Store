@@ -80,7 +80,7 @@ export function Product() {
                 <div className="infoBuy">
                     <div className="tags">
                         { product.tags === "exclusive" ? (<span>Exclusivo</span>) : product.tags === "new" ? (<span>Novidade</span>) : product.tags === "hardtofind" ? (<span>Difícil de Encontrar</span>) : (<></>)}
-                        { theme !== "" && <a href={`/products/${theme}/1`}><img src={`/images/products/${theme}_logo.png`} alt="" /></a>}
+                        { theme !== "" &&  <a href={`/products/${theme}/1`}><img src={`/images/products/${theme}_logo.png`} alt="" /></a>}
                         { theme === undefined &&  <a href={`/products/${product.theme_name}/1`}><img src={`/images/products/${product.theme_name}_logo.png`} alt="" /></a>}
                     </div>
                     <div className="name">

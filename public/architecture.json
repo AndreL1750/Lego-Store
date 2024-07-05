@@ -10,7 +10,7 @@
         "country": "França",
         "ages": "18+",
         "prod_status": "preorder",
-        "tags": ["exclusive","hardtofind"],
+        "tags": "exclusive",
         "images": ["/images/products/21061/1-21061.webp", "/images/products/21061/2-21061.webp"]
     },
     {
@@ -24,6 +24,7 @@
         "country": "Egito",
         "ages": "18+",
         "prod_status": "available",
+        "tags": "hardtofind",
         "images": ["/images/products/21058/1-21058.webp", "/images/products/21058/2-21058.webp"]
     },
     {
@@ -36,6 +37,7 @@
         "prod_desc": "Reúne os modelos mais emblemáticos de Paris com este magnífico modelo de horizonte de Paris. O set 21044 da Coleção Skyline de LEGO® Architecture contém o Arco do Triunfo, os Campos Elísios, a Torre Montparnasse, o Grand Palais, a Torre Eiffel e o Louvre, e tem um acabamento com relva e áreas arborizadas e uma placa decorativa com o nome Paris. Este set foi concebido para oferecer uma experiência de construção relaxante e gratificante para todos os que têm interesse por viagens e design e é uma peça magnífica para expor em casa ou no escritório. A escala destes modelos de horizonte dá com precisão as dimensões relativas das estruturas representadas, com realismo de cores.",
         "ages": "12+",
         "prod_status": "available",
+        "tags": "exclusive",
         "images": ["/images/products/21044/1-21044.webp", "/images/products/21044/2-21044.webp"]
     },
     {
@@ -48,6 +50,7 @@
         "prod_desc": "Celebre a longevidade e beleza majestosa de um dos edifícios mais venerados do Japão com este modelo de exposição LEGO® Architecture Castelo de Himeji (21060). Seja transportado para a cidade de Himeji sem sair de casa, enquanto recria detalhes autênticos como as torres do castelo, as passagens e os muros assimétricos em estilo LEGO.",
         "ages": "18+",
         "prod_status": "available",
+        "tags": "hardtofind",
         "images": ["/images/products/21060/1-21060.webp", "/images/products/21060/2-21060.webp"]
     },
     {
@@ -60,6 +63,7 @@
         "prod_desc": "Construa a expressão máxima do amor na arquitetura com este encantador modelo do Taj Mahal. Saboreie a experiência de construção rica enquanto recria a cripta em que Mumtaz e Shah Jahan terão juntos o sono eterno. Capture os pormenores autênticos tais como a câmara central, os monumentais ivãs, a cúpula central,chhatris e minaretes. Acrescente a placa identificativa para completar uma peça central impressionante.",
         "ages": "18+",
         "prod_status": "available",
+        "tags": "hardtofind",
         "images": ["/images/products/21056/1-21056.webp", "/images/products/21056/2-21056.webp"]
     },
     {
@@ -72,6 +76,7 @@
         "prod_desc": "Celebra a diversidade arquitetónica de Londres com este pormenorizado modelo de peças LEGO®. A coleção LEGO Architecture Skyline oferece modelos adequados para exibir em casa e no escritório e foi desenvolvida para todos os que têm interesse por viagens, cultura arquitetónica, história e design. Cada set é feito à escala para dar uma representação precisa das dimensões relativas de cada estrutura, com realismo de cores.",
         "ages": "12+",
         "prod_status": "available",
+        "tags": "exclusive",
         "images": ["/images/products/21034/1-21034.webp", "/images/products/21034/2-21034.webp"]
     },
     {
@@ -83,6 +88,7 @@
         "star_rating": 4.6,
         "prod_desc": "Celebra a diversidade arquitetónica da Cidade de Nova Iorque com este pormenorizado modelo de peças LEGO®. A coleção LEGO Architecture Skyline oferece modelos adequados para exibir em casa e no escritório e foi desenvolvida para todos os que têm interesse por viagens, cultura arquitetónica, história e design. Cada set é feito à escala para dar uma representação precisa das dimensões relativas de cada estrutura, com realismo de cores.",
         "ages": "12+",
+        "tags": "exclusive",
         "prod_status": "available",
         "images": ["/images/products/21028/1-21028.webp", "/images/products/21028/2-21028.webp"]
     },
@@ -96,6 +102,7 @@
         "prod_desc": "Celebra a monumental mistura de arquitetura e escultura com este set 21042 LEGO® Architecture Estátua da Liberdade. O símbolo da liberdade icónico encontra-se a mais de 92.900 metros acima de Liberty Island no porto de Nova Iorque, dando as boas-vindas à navegação de todo o mundo. Esta impressionante interpretação LEGO reproduz fielmente a mistura harmoniosa de escultura e arquitetura do monumento, com o seu pedestal intrincadamente pormenorizado com brasões e varandas com colunas. A lindamentetrabalhada estátua da Senhora Liberdade apresenta uma capa ondulante, correntes quebradas, coroa de 7 raios, tábua icónica e um braço levantado com uma tocha dourada.",
         "ages": "16+",
         "prod_status": "available",
+        "tags": "hardtofind",
         "images": ["/images/products/21042/1-21042.webp", "/images/products/21042/2-21042.webp"]
     },
     {
@@ -108,6 +115,7 @@
         "prod_desc": "Evoque o espírito da «Cidade do Leão» com este pormenorizado modelo Skyline de Singapura. Mergulhe numa viagem de construção com 827 peças, construindo versões inteligentes em peças LEGO® da Marina Bay Sands, do OCBC Centre, One Raffles Place, Mercado de Alimentos Lau Pa Sat, Jardins da Baía e muito mais. Combine os arranha-céus, encantadores edifícios antigos junto ao rio e elementos de vegetação para criar uma surpreendente peça central.",
         "ages": "18+",
         "prod_status": "available",
+        "tags": "exclusive",
         "images": ["/images/products/21057/1-21057.webp", "/images/products/21057/2-21057.webp"]
     },
     {
